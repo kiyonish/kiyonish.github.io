@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 	    var articleNodes = this.props.data.map(function(article) {
 	      return (
-	        <Article title={article.title} id={article.id} image={ article.image }/>
+	        <Article key={article.id} title={article.title} image={ article.image }/>
 	      );
 	    });
 	    return (
