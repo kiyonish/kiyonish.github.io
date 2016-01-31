@@ -107,7 +107,7 @@ $(document).ready(function(){
 
 	// Load the data and initialize the app.
 	// IRL would handle errors, show/hide loader for larger payloads
-	$.getJSON("json/articles.json", function( data ) {
+	$.getJSON("assets/json/articles.json", function( data ) {
 
 		ArticleStore.setArticles( data );
 
