@@ -2,10 +2,14 @@ $(document).ready(function(){
 
 	"use strict";
 
+	// Path to the article json file
+	var data_file = "assets/json/articles.json";
+
+
 	// Define the model 
 	var ArticleStore = {
 
-
+		// Number of articles to show initial
 		visibleArticles : 4,
 
 		totalArticles 	: null,
@@ -23,7 +27,9 @@ $(document).ready(function(){
 
 			var i = -1;
 			while( i++ < ArticleStore.visibleArticles - 1 ) {
+
 				articles.push( ArticleStore.data[ i ] );
+
 			}
 
 			return articles;
@@ -39,7 +45,7 @@ $(document).ready(function(){
 
 	    var articleNodes = this.props.data.map(function(article) {
 	      return (
-	        <Article key={article.id} title={article.title} image={ article.image }/>
+	        <Article key={article.id} title={article.title} image={ article.image } />
 	      );
 	    });
 	    return (
@@ -71,7 +77,9 @@ $(document).ready(function(){
 
 		},
 		render: function() {
+
 			return <button disabled={ ArticleStore.totalArticles === ArticleStore.visibleArticles  } onClick={ this.handleClick }>Load more articles</button>;
+
 		}
 	});
 
@@ -83,8 +91,11 @@ $(document).ready(function(){
 
 			// Increment number of visible the Articles model unless all are visible
 			if( ArticleStore.visibleArticles < ArticleStore.totalArticles ) {
+
 				ArticleStore.visibleArticles++;
+				
 				render();
+
 			}
 
 		});
@@ -107,7 +118,7 @@ $(document).ready(function(){
 
 	// Load the data and initialize the app.
 	// IRL would handle errors, show/hide loader for larger payloads
-	$.getJSON("assets/json/articles.json", function( data ) {
+	$.getJSON( data_file, function( data ) {
 
 		ArticleStore.setArticles( data );
 

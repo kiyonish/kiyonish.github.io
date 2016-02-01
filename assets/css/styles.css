@@ -36,7 +36,6 @@ h2 {
   max-width: 960px;
   margin: 0 auto; }
   #load-more-container button {
-    cursor: pointer;
     width: 100%;
     margin: 0 auto;
     display: block;
@@ -51,6 +50,8 @@ h2 {
     letter-spacing: 2px; }
   #load-more-container button:focus {
     outline: none; }
+  #load-more-container button:not([disabled]) {
+    cursor: pointer; }
   #load-more-container button:not([disabled]):hover {
     background: #888; }
 
